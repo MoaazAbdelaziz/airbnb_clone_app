@@ -1,20 +1,21 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 
+@injectable
 class ApiService {
-  final Dio dio;
+  final Dio _dio;
 
-  ApiService(this.dio);
+  ApiService(this._dio);
 
-  Future<Response> get(String path, dynamic body) async {
-    var response = await dio.get(
+  Future<Response> get(String path) async {
+    var response = await _dio.get(
       path,
-      data: body,
     );
     return response;
   }
 
   Future<Response> post(String path, dynamic body) async {
-    var response = await dio.post(
+    var response = await _dio.post(
       path,
       data: body,
     );
@@ -22,7 +23,7 @@ class ApiService {
   }
 
   Future<Response> delete(String path, dynamic body) async {
-    var response = await dio.delete(
+    var response = await _dio.delete(
       path,
       data: body,
     );
