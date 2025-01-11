@@ -1,8 +1,8 @@
 import 'package:airbnb_clone_app/core/errors/failure.dart';
 import 'package:airbnb_clone_app/core/utils/api_constants.dart';
 import 'package:airbnb_clone_app/core/utils/api_service.dart';
-import 'package:airbnb_clone_app/features/home/data/models/booking_model/booking_model.dart';
-import 'package:airbnb_clone_app/features/home/data/repos/booking_tab_repo/users_tab_repo.dart';
+import 'package:airbnb_clone_app/features/home/data/models/booking_model/booking_model/booking_model.dart';
+import 'package:airbnb_clone_app/features/home/data/repos/booking_tab_repo/bookings_tab_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
