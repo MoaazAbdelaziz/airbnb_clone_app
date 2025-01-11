@@ -1,6 +1,4 @@
-import 'package:airbnb_clone_app/features/home/data/models/user_model/user_model.dart';
-
-class BookingModel {
+class Property {
   int? id;
   int? userId;
   String? name;
@@ -11,9 +9,8 @@ class BookingModel {
   String? video;
   DateTime? createdAt;
   DateTime? updatedAt;
-  UserModel? user;
 
-  BookingModel({
+  Property({
     this.id,
     this.userId,
     this.name,
@@ -24,10 +21,9 @@ class BookingModel {
     this.video,
     this.createdAt,
     this.updatedAt,
-    this.user,
   });
 
-  factory BookingModel.fromJson(Map<String, dynamic> json) => BookingModel(
+  factory Property.fromJson(Map<String, dynamic> json) => Property(
         id: json['id'] as int?,
         userId: json['user_id'] as int?,
         name: json['name'] as String?,
@@ -42,9 +38,6 @@ class BookingModel {
         updatedAt: json['updated_at'] == null
             ? null
             : DateTime.parse(json['updated_at'] as String),
-        user: json['user'] == null
-            ? null
-            : UserModel.fromJson(json['user'] as Map<String, dynamic>),
       );
 
   Map<String, dynamic> toJson() => {
@@ -58,6 +51,5 @@ class BookingModel {
         'video': video,
         'created_at': createdAt?.toIso8601String(),
         'updated_at': updatedAt?.toIso8601String(),
-        'user': user?.toJson(),
       };
 }
