@@ -1,3 +1,4 @@
+import 'package:airbnb_clone_app/features/home/presention/views/taps/bookings/widgets/bookings_tab_view_body.dart';
 import 'package:flutter/material.dart';
 
 class BookingsTabView extends StatelessWidget {
@@ -5,6 +6,8 @@ class BookingsTabView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: BookingsTabViewBody(),
+    );
   }
 }
