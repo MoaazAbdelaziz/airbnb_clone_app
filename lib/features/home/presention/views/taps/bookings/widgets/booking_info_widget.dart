@@ -1,4 +1,5 @@
-import 'package:airbnb_clone_app/features/home/data/models/booking_model/booking_model/booking_model.dart';
+import 'dart:convert';
+import 'package:airbnb_clone_app/features/home/data/models/booking_model/booking_model.dart';
 import 'package:flutter/material.dart';
 
 class BookingInfoWidget extends StatelessWidget {
@@ -8,6 +9,12 @@ class BookingInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> imageUrls = booking.property?.images != null
+        ? List<String>.from(json.decode(booking.property!.images!))
+        : [];
+
+    print(imageUrls);
+
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       elevation: 5,
@@ -43,19 +50,16 @@ class BookingInfoWidget extends StatelessWidget {
                 ],
               ),
             const SizedBox(height: 12),
-            if (booking.property?.images != null &&
-                booking.property!.images!.isNotEmpty)
+            if (imageUrls.isNotEmpty)
               SizedBox(
                 height: 200,
                 child: PageView.builder(
-                  itemCount: booking.property!.images!.split(',').length,
+                  itemCount: imageUrls.length,
                   itemBuilder: (context, index) {
-                    String imageUrl =
-                        booking.property!.images!.split(',')[index].trim();
                     return ClipRRect(
                       borderRadius: BorderRadius.circular(8),
                       child: Image.network(
-                        imageUrl,
+                        imageUrls[index],
                         width: double.infinity,
                         height: 200,
                         fit: BoxFit.cover,
